@@ -1,10 +1,7 @@
 package com.Ecom.E_commerce.models;
 
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -24,5 +21,10 @@ public class Orders {
 
     @Column
     private String total_amt;
+
+
+    @ManyToMany
+    @JoinColumn(name = "user_id")
+    private User user;
 
 }
