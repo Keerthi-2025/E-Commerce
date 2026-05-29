@@ -12,19 +12,17 @@ import lombok.NoArgsConstructor;
 
 @Data
 @Entity
-@Table(name = "CartItems")
+@Table(name = "OrderItems")
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
 
-public class CartItems {
+public class OrderItems {
 
     @Id
-    private String cartItm_id;
+    private String orderItms_id;
 
-    @Column(nullable = false)
-    private  String car_qty;
-
-
+    @Column
+    private  String or_qty;
 
 }
