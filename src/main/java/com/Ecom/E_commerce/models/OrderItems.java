@@ -1,10 +1,7 @@
 package com.Ecom.E_commerce.models;
 
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -24,5 +21,13 @@ public class OrderItems {
 
     @Column
     private  String or_qty;
+
+    @ManyToOne
+    @JoinColumn(name = "order_id")
+    private  Orders orders;
+
+    @ManyToOne
+    @JoinColumn(name = "product_id")
+    private Product product;
 
 }

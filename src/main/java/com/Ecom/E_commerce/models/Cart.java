@@ -7,6 +7,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Data
 @Table(name = "Cart")
 @Entity
@@ -23,4 +25,7 @@ public class Cart {
   @OneToOne
   @JoinColumn(name = "user_id")
   private  User user;
+
+  @OneToMany(mappedBy = "cart")
+  private List <CartItems> cartItems;
 }

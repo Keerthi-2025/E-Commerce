@@ -1,13 +1,12 @@
 package com.Ecom.E_commerce.models;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 @Data
 @Entity
@@ -32,5 +31,11 @@ public class Product {
 
     @Column(nullable = false)
     private String description;
+
+    @OneToMany(mappedBy = "product")
+    private List<CartItems> cartItems;
+
+    @OneToMany(mappedBy = "product")
+    private  List<OrderItems> orderItems;
 
 }
