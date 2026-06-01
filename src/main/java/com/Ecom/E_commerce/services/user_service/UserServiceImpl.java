@@ -1,5 +1,6 @@
 package com.Ecom.E_commerce.services.user_service;
 
+import com.Ecom.E_commerce.exceptions.ApiRequestException;
 import com.Ecom.E_commerce.mappers.UserMapper;
 import com.Ecom.E_commerce.models.User;
 
