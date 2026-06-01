@@ -1,4 +1,4 @@
 package com.Ecom.E_commerce.Dto.Request;
 
-public class CreateUserDto {
+public record CreateUserDto(String userId, String userName, String password, String email) {
 }
