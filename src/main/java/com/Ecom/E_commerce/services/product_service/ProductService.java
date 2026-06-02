@@ -5,7 +5,9 @@ import com.Ecom.E_commerce.models.Product;
 import java.util.List;
 
 public interface ProductService {
-    String createProduct(String pro_id, String name, double price, String stock, String description);
+    String createProduct(Integer pro_id, String name, double price, Integer stock, String description);
+
+    String createProduct(Integer pro_id, String name, double price, String stock, String description);
 
     List<Product> getAllProducts();
 

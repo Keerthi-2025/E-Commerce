@@ -21,7 +21,7 @@ public class ProductController {
 
     @PostMapping("/v1/createproduct")
     public ResponseEntity<String> createproduct(@RequestBody CreateProductDto data){
-        String message = productService.createProduct(data.pro_id(), data.name(), data.price(), data.stock(), data.description());
+        String message = productService.createProduct(data.pro_id(), data.name(), data.price(), Integer.valueOf(data.stock()), data.description());
         return  ResponseEntity.status(201).body(message);
     }
 

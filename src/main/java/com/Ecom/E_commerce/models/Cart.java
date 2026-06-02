@@ -20,7 +20,7 @@ import java.util.List;
 public class Cart {
 
     @Id
-    private  String cart_id;
+    private  Integer cart_id;
 
   @OneToOne
   @JoinColumn(name = "user_id")

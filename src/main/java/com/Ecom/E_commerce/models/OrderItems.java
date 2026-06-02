@@ -12,7 +12,7 @@ import lombok.*;
 public class OrderItems {
 
     @Id
-    private String orderItms_id;
+    private Integer orderItms_id;
 
     @Column
     private String or_qty;

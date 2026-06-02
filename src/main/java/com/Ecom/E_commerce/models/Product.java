@@ -18,7 +18,8 @@ import java.util.List;
 public class Product {
 
     @Id
-    private String pro_id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer pro_id;
 
     @Column(nullable = false)
     private  String name;
@@ -27,7 +28,7 @@ public class Product {
     private  double price;
 
     @Column(nullable = false)
-    private String stock;
+    private Integer stock;
 
     @Column(nullable = false)
     private String description;

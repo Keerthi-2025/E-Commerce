@@ -1,4 +1,4 @@
 package com.Ecom.E_commerce.Dto.Request;
 
-public record CreateProductDto(String pro_id, String name, double price, String stock, String description ) {
+public record CreateProductDto(Integer pro_id, String name, double price, Integer stock, String description ) {
 }

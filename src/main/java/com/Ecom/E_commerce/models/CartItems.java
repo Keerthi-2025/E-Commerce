@@ -17,7 +17,7 @@ import lombok.NoArgsConstructor;
 public class CartItems {
 
     @Id
-    private String cartItm_id;
+    private Integer cartItm_id;
 
     @Column(nullable = false)
     private  String car_qty;

@@ -20,10 +20,15 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public String createProduct(String pro_id, String name, double price, String stock, String description) {
+    public String createProduct(Integer pro_id, String name, double price, Integer stock, String description) {
         Product product = productMapper.toproduct(pro_id, name, price, stock, description);
         productRepository.save(product);
         return "Product created";
+    }
+
+    @Override
+    public String createProduct(Integer pro_id, String name, double price, String stock, String description) {
+        return "";
     }
 
     @Override

@@ -14,7 +14,7 @@ import java.util.List;
 public class Orders {
 
     @Id
-    private String order_id;
+    private Integer order_id;
 
     @Column
     private String total_amt;
