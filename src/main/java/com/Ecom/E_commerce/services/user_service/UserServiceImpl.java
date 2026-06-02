@@ -16,8 +16,6 @@ public class UserServiceImpl implements UserService {
     private final UserMapper userMapper;
 //    private  final UUIDUtil uuidUtil;
 
-
-
     public   UserServiceImpl(UserRepository userRepository, UserMapper userMapper){
 
         this.userRepository = userRepository;
