@@ -11,6 +11,7 @@ public class ProductMapper {
                 .pro_id(pro_id)
                 .name(name)
                 .price(price)
+                .stock(stock)
                 .description(description)
                 .build();
     }
