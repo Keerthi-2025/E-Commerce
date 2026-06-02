@@ -1,6 +1,7 @@
 package com.Ecom.E_commerce.services.product_service;
 
 
+import com.Ecom.E_commerce.exceptions.ApiRequestException;
 import com.Ecom.E_commerce.mappers.ProductMapper;
 import com.Ecom.E_commerce.models.Product;
 import com.Ecom.E_commerce.repositories.ProductRepository;
@@ -26,12 +27,12 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public List<ProductService> getAllProducts() {
-        return List.of();
+    public List<Product> getAllProducts() {
+        return productRepository.findAll();
     }
 
     @Override
     public Product getProductId(String pro_id) {
-        return null;
+        return productRepository.findById(pro_id).orElseThrow(()-> new ApiRequestException("Product ID not found"));
     }
 }
