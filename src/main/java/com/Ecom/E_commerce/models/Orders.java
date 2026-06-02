@@ -1,21 +1,16 @@
 package com.Ecom.E_commerce.models;
 
-
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.List;
 
 @Data
-@Table(name = "Order")
 @Entity
+@Table(name = "orders")   // changed
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-
 public class Orders {
 
     @Id
@@ -24,12 +19,10 @@ public class Orders {
     @Column
     private String total_amt;
 
-
-    @ManyToMany
+    @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
 
     @OneToMany(mappedBy = "order")
     private List<OrderItems> orderItemsList;
-
 }
