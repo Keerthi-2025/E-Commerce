@@ -32,7 +32,7 @@ public class CartController {
     }
 
     @GetMapping("/v1/getCartById")
-    ResponseEntity <Cart>getCartById(@RequestParam("cart_id") String cart_id) {
+    ResponseEntity <Cart>getCartById(@RequestParam("cart_id") Integer cart_id) {
         return ResponseEntity.status(200).body(cartService.getCartById(cart_id));
     }
 }

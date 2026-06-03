@@ -32,7 +32,7 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public Product getProductId(String pro_id) {
+    public Product getProductId(Integer pro_id) {
         return productRepository.findById(pro_id).orElseThrow(()-> new ApiRequestException("Product ID not found"));
     }
 }

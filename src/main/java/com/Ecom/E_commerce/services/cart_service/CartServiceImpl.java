@@ -33,7 +33,7 @@ public class CartServiceImpl  implements CartService{
     }
 
     @Override
-    public Cart getCartById(String cart_id) {
+    public Cart getCartById(Integer cart_id) {
         return cartRepository.findById(cart_id).orElseThrow(()-> new ApiRequestException("Cart ID not found"));
     }
 

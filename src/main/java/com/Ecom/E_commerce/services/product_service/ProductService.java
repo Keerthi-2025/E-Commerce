@@ -9,5 +9,5 @@ public interface ProductService {
 
     List<Product> getAllProducts();
 
-    Product getProductId(String pro_id);
+    Product getProductId(Integer pro_id);
 }

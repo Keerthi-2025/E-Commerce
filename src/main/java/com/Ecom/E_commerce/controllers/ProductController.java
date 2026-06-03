@@ -31,7 +31,7 @@ public class ProductController {
     }
 
     @GetMapping("/v1/getProductId")
-    ResponseEntity <Product>getProductId(@RequestParam("pro_id") String pro_id){
+    ResponseEntity <Product>getProductId(@RequestParam("pro_id") Integer pro_id){
         return  ResponseEntity.status(200).body(productService.getProductId(pro_id));
     }
 }
