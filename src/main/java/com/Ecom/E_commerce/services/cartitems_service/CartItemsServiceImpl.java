@@ -59,7 +59,6 @@ public class CartItemsServiceImpl implements  CartItemsService {
 
     @Override
     public List<CartItems> getAllCartItems() {
-
         return cartItemsRepository.findAll();
     }
 }

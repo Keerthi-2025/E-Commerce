@@ -1,5 +1,6 @@
 package com.Ecom.E_commerce.models;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -34,6 +35,7 @@ public class Product {
     private String description;
 
     @OneToMany(mappedBy = "product")
+    @JsonManagedReference("product-items")
     private List<CartItems> cartItems;
 
     @OneToMany(mappedBy = "product")

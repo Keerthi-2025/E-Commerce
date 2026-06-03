@@ -1,5 +1,6 @@
 package com.Ecom.E_commerce.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -33,6 +34,7 @@ public class User {
     private  String role;
 
     @OneToOne(mappedBy = "user")
+    @JsonBackReference("user-cart")
     private Cart cart;
 
     @OneToMany(mappedBy = "user")
