@@ -27,11 +27,6 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public String createProduct(Integer pro_id, String name, double price, String stock, String description) {
-        return "";
-    }
-
-    @Override
     public List<Product> getAllProducts() {
         return productRepository.findAll();
     }
