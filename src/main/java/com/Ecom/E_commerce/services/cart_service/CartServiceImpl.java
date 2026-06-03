@@ -4,8 +4,12 @@ import com.Ecom.E_commerce.exceptions.ApiRequestException;
 import com.Ecom.E_commerce.mappers.CartMapper;
 import com.Ecom.E_commerce.models.Cart;
 import com.Ecom.E_commerce.repositories.CartRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
+
+
+@Service
 
 public class CartServiceImpl  implements CartService{
     private final CartRepository cartRepository;
