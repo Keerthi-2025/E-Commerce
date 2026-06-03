@@ -1,6 +1,7 @@
 package com.Ecom.E_commerce.services.cartitems_service;
 
 
+import com.Ecom.E_commerce.exceptions.ApiRequestException;
 import com.Ecom.E_commerce.mappers.CartItemsMapper;
 import com.Ecom.E_commerce.models.Cart;
 import com.Ecom.E_commerce.models.CartItems;
@@ -53,11 +54,12 @@ public class CartItemsServiceImpl implements  CartItemsService {
     }
     @Override
     public CartItems getCartItemsById(Integer cartItm_id) {
-        return null;
+        return  cartItemsRepository.findById(cartItm_id).orElseThrow(()-> new ApiRequestException("items not found in the cart"));
     }
 
     @Override
     public List<CartItems> getAllCartItems() {
-        return List.of();
+
+        return cartItemsRepository.findAll();
     }
 }
