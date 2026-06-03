@@ -7,8 +7,6 @@ import java.util.List;
 public interface ProductService {
     String createProduct(Integer pro_id, String name, double price, Integer stock, String description);
 
-    String createProduct(Integer pro_id, String name, double price, String stock, String description);
-
     List<Product> getAllProducts();
 
     Product getProductId(String pro_id);
