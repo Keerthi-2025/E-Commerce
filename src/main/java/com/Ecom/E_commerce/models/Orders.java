@@ -7,7 +7,7 @@ import java.util.List;
 
 @Data
 @Entity
-@Table(name = "orders")   // changed
+@Table(name = "orders")
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
@@ -24,5 +24,5 @@ public class Orders {
     private User user;
 
     @OneToMany(mappedBy = "order")
-    private List<OrderItems> orderItemsList;
+    private List<OrderItems> orderItems;
 }
