@@ -1,7 +1,6 @@
 package com.Ecom.E_commerce.services.cartitems_service;
 
 import com.Ecom.E_commerce.models.CartItems;
-import com.Ecom.E_commerce.models.Product;
 
 import java.util.List;
 
