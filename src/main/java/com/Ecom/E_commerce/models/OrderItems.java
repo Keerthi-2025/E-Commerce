@@ -5,7 +5,7 @@ import lombok.*;
 
 @Data
 @Entity
-@Table(name = "order_items")   // recommended naming
+@Table(name = "order_items")
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
@@ -15,7 +15,7 @@ public class OrderItems {
     private Integer orderItms_id;
 
     @Column
-    private String or_qty;
+    private String ord_qty;
 
     @ManyToOne
     @JoinColumn(name = "order_id")

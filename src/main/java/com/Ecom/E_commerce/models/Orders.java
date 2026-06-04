@@ -23,6 +23,6 @@ public class Orders {
     @JoinColumn(name = "user_id")
     private User user;
 
-    @OneToMany(mappedBy = "order")
-    private List<OrderItems> orderItems;
+//    @OneToMany(mappedBy = "order")
+//    private List<OrderItems> orderItems;
 }
