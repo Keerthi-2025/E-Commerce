@@ -1,4 +1,4 @@
-:root {
+/* :root {
   --text: #6b6375;
   --text-h: #08060d;
   --bg: #fff;
@@ -108,4 +108,27 @@ code {
   line-height: 135%;
   padding: 4px 8px;
   background: var(--code-bg);
+} */
+
+
+@import "tailwindcss";
+
+
+@layer components
+{
+  .input-box{
+    @apply w-full text-sm bg-transparent border-[1.5px] px-5 py-3 rounded mb-4 outline-none;
+  }
+
+  .btn-primary{
+    @apply w-full  bg-blue-600 text-white  p-2 rounded my-1 hover:bg-green-500 hover:text-black;
+  }
+
+  .icon-btn{
+    @apply text-xl text-slate-300 cursor-pointer hover:text-blue-500;
+  }
+
+  .input-label{
+    @apply text-xs text-slate-400;
+  }
 }
