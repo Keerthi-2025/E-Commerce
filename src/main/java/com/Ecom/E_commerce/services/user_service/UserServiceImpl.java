@@ -26,7 +26,24 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public LoginResponse loginUser(String email, String password) {
-        return null;
+
+        User user = userRepository.findByEmail(email);
+
+        if (user == null) {
+            throw new RuntimeException("User not found");
+        }
+
+        if (!user.getPassword().equals(password)) {
+            throw new RuntimeException("Invalid password");
+        }
+
+        return new LoginResponse(
+                user.getUserId(),
+                user.getUserName(),
+                user.getEmail(),
+                user.getRole(),
+                "Login successful"
+        );
     }
 
     @Override
