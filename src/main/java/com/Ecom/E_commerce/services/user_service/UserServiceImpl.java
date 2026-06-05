@@ -1,5 +1,6 @@
 package com.Ecom.E_commerce.services.user_service;
 
+import com.Ecom.E_commerce.Dto.Response.LoginResponse;
 import com.Ecom.E_commerce.exceptions.ApiRequestException;
 import com.Ecom.E_commerce.mappers.UserMapper;
 import com.Ecom.E_commerce.models.User;
@@ -22,6 +23,11 @@ public class UserServiceImpl implements UserService {
         this.userMapper = userMapper;
     }
 
+
+    @Override
+    public LoginResponse loginUser(String email, String password) {
+        return null;
+    }
 
     @Override
     public String createUser(String userId, String userName, String password, String email) {
