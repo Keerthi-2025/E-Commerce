@@ -12,14 +12,14 @@ import lombok.*;
 public class OrderItems {
 
     @Id
-    private Integer orderItms_id;
+    private Integer orderItms_Id;
 
     @Column
     private String ord_qty;
 
     @ManyToOne
     @JoinColumn(name = "order_id")
-    private Orders order;
+    private Orders orders;
 
     @ManyToOne
     @JoinColumn(name = "product_id")
