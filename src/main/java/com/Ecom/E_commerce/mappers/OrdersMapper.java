@@ -25,8 +25,6 @@
 //
 
 package com.Ecom.E_commerce.mappers;
-
-import com.Ecom.E_commerce.models.OrderItems;
 import com.Ecom.E_commerce.models.Orders;
 import com.Ecom.E_commerce.models.User;
 import org.springframework.stereotype.Component;
