@@ -15,7 +15,7 @@ public class OrderItems {
     private Integer orderItms_Id;
 
     @Column
-    private String ord_qty;
+    private Integer ord_qty;
 
     @ManyToOne
     @JoinColumn(name = "order_id")

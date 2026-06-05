@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 @Component
 
 public class OrderItemsMapper {
-    public OrderItems tooorderitems(Integer orderItms_Id, String ord_qty, Orders orders, Product product){
+    public OrderItems tooorderitems(Integer orderItms_Id, Integer ord_qty, Orders orders, Product product){
         return OrderItems.builder()
                 .orderItms_Id(orderItms_Id)
                 .ord_qty(ord_qty)
