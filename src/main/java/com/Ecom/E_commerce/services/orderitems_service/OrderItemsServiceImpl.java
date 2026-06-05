@@ -24,20 +24,58 @@ public class OrderItemsServiceImpl implements OrderItemsService {
     private  final OrderItemsMapper orderItemsMapper;
     private  final ProductRepository productRepository;
 
+//    @Override
+//    public String addOrderItem(Integer orderItms_Id, Integer ord_qty, Integer order_id, Integer pro_id) {
+//        System.out.println("order_id = " + order_id);
+//        System.out.println("pro_id = " + pro_id);
+//        Orders orders = ordersRepository.findById(order_id).orElseThrow(()-> new ApiRequestException("Order not found"));
+//        Product product = productRepository.findById(pro_id).orElseThrow(()-> new ApiRequestException("Product not found"));
+//        if(product.getStock() < ord_qty){
+//            return "Insuffiecient stock";
+//        }
+//        product.setStock(product.getStock() - ord_qty);
+//        productRepository.save(product);
+//
+//        OrderItems orderItems = orderItemsMapper.tooorderitems(orderItms_Id, ord_qty, orders, product);
+//
+//        return "Order Item added successfully";
+//    }
+
     @Override
-    public String addOrderItem(Integer orderItms_Id, Integer ord_qty, Integer order_id, Integer pro_id) {
-        Orders orders = ordersRepository.findById(order_id).orElseThrow(()-> new ApiRequestException("Order not found"));
-        Product product = productRepository.findById(pro_id).orElseThrow(()-> new ApiRequestException("Product not found"));
-        if(product.getStock() < ord_qty){
-            return "Insuffiecient stock";
-        }
-        product.setStock(product.getStock() - ord_qty);
-        productRepository.save(product);
+    public String addOrderItem(Integer orderItms_Id,
+                               Integer ord_qty,
+                               Integer order_id,
+                               Integer pro_id) {
 
-        OrderItems orderItems = orderItemsMapper.tooorderitems(orderItms_Id, ord_qty, orders, product);
+        System.out.println("order_id = " + order_id);
+        System.out.println("pro_id = " + pro_id);
 
-        return "Order Item added successfully";
+        Orders orders = ordersRepository.findById(order_id)
+                .orElseThrow(() -> new RuntimeException("Order not found"));
+
+        System.out.println("Order Found");
+
+        Product product = productRepository.findById(pro_id)
+                .orElseThrow(() -> new RuntimeException("Product not found"));
+
+        System.out.println("Product Found");
+
+        OrderItems orderItems = orderItemsMapper.tooorderitems(
+                orderItms_Id,
+                ord_qty,
+                orders,
+                product
+        );
+
+//        System.out.println("Before Save");
+
+        orderItemsRepository.save(orderItems);
+
+//        System.out.println("After Save");
+
+        return "Order Item Added Successfully";
     }
+
 
     @Override
     public OrderItems getOrderItemsById(Integer orderItms_Id) {
