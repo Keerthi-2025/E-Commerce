@@ -12,7 +12,7 @@ public interface OrderItemsService {
 
     List<OrderItems> getAllOrderItems();
 
-    String updateOrderItems(Integer orderItms_Id, String ord_qty);
+    String updateOrderItems(Integer orderItms_Id, Integer ord_qty);
 
     String deleteOrderItems(Integer orderItems_Id);
 
