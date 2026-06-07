@@ -4,6 +4,9 @@ import PasswordInput from '../../components/Input/PasswordInput'
 
 import axiosInstance from "../../utils/axiosInstance";
 
+
+import loginbg from "../../assets/login.jpeg";
+
 export const Login = () => {
 
   const [email, setEmail] = useState("")
@@ -61,19 +64,22 @@ export const Login = () => {
 
   return (
     <>
-      <div className='flex items-center justify-center mt-28'>
-        <div className='w-96 border rounded bg-white px-7 py-10'>
+<div
+  className="min-h-screen flex items-center justify-start px-35 pt-15 bg-cover bg-center" 
+  style={{ backgroundImage: `url(${loginbg})` }}
+>
+        <div className='w-96 border rounded-2xl bg-white/15  shadow-lg backdrop-blur-md px-7 py-10'>
 
           <form onSubmit={handleLogin}>
 
-            <h4 className='text-2xl mb-7 text-red-900'>
+            <h4 className='text-2xl  text-white mb-7 text-red-900'>
               Login
             </h4>
 
             <input
               type='text'
               placeholder='Email'
-              className='input-box'
+              className='input-box text-black font-semibold'
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />

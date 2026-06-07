@@ -4,7 +4,7 @@ import axiosInstance from "../../utils/axiosInstance";
 
 import PasswordInput from "../../components/Input/PasswordInput";
 
-import bgImage from "../../assets/signup.jpg";
+import signupbg from "../../assets/sig.jpg";
 
 const Signup = () => {
 
@@ -59,14 +59,14 @@ const Signup = () => {
 
     return (
        
-            <div className="flex items-center justify-center mt-27 min-h-screen w-full"
+            <div className="flex items-center justify-center md:justify-end min-h-screen w-full pr-16"
              style={{
-                backgroundImage:`url(${bgImage})`,
-                backgroundSize:"cover",
-                backgroundPosition:"center",
+                backgroundImage:`url(${signupbg})`,
+                backgroundSize:"contain",
+                backgroundPosition:"left center",
                 backgroundRepeat:"no-repeat"
              }}>
-                <div className=  " w-96 border rounded bg-white  px-7 py-10  ">
+                <div className=  " w-96 border rounded-2xl bg-white/40 backdrop-blur-md shadow-xl hover:shadow-2xl transition-all duration-300 px-7 py-10 mr-10 ">
                     <form onSubmit={handleSignup}>
                         <h1 className="text-2xl mb-7 ">Signup</h1>
 
@@ -91,7 +91,7 @@ const Signup = () => {
                        {error && <p className="text-red-600">{error}</p>}
 
                        <p>Already have an Account? {" "}
-                        <Link to="/signup" className="font-medium underline">Signup</Link>
+                        <Link to="/login" className="font-medium underline">LogIn</Link>
                        </p>
                     </form>
                 </div>

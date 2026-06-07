@@ -121,7 +121,7 @@ code {
   }
 
   .btn-primary{
-    @apply w-full  bg-blue-600 text-white  p-2 rounded my-1 hover:bg-green-500 hover:text-black;
+    @apply w-full  bg-black text-white  p-2 rounded my-1 hover:bg-green-500 hover:text-black;
   }
 
   .icon-btn{
@@ -130,5 +130,10 @@ code {
 
   .input-label{
     @apply text-xs text-slate-400;
+  }
+
+  html, css{
+    height: 100%;
+    overflow: hidden;
   }
 }
