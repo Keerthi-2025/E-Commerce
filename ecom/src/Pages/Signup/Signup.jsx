@@ -2,6 +2,10 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axiosInstance from "../../utils/axiosInstance";
 
+import PasswordInput from "../../components/Input/PasswordInput";
+
+import bgImage from "../../assets/signup.jpg";
+
 const Signup = () => {
 
     const [name, setName] = useState("");
@@ -32,7 +36,7 @@ const Signup = () => {
         setError("");
 
         try {
-            const response = await axiosInstance.post("/api/User/v1/signup", {
+            const response = await axiosInstance.post("/User/v1/signup", {
                 userId: Date.now().toString(),
                 userName: name,
                 email: email,
@@ -55,7 +59,13 @@ const Signup = () => {
 
     return (
        
-            <div className="flex items-center justify-center mt-27">
+            <div className="flex items-center justify-center mt-27 min-h-screen w-full"
+             style={{
+                backgroundImage:`url(${bgImage})`,
+                backgroundSize:"cover",
+                backgroundPosition:"center",
+                backgroundRepeat:"no-repeat"
+             }}>
                 <div className=  " w-96 border rounded bg-white  px-7 py-10  ">
                     <form onSubmit={handleSignup}>
                         <h1 className="text-2xl mb-7 ">Signup</h1>
@@ -73,6 +83,11 @@ const Signup = () => {
                         className="input-box"
                         value={email}
                         onChange={(e)=>setEmail(e.target.value)}/>
+
+                     <PasswordInput
+          value={password}
+          onChange={(e)=>setPassword(e.target.value)}
+          />
 
 
 
