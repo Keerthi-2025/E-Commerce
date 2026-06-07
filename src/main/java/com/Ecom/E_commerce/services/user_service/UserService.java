@@ -12,6 +12,8 @@ public interface UserService {
 
     LoginResponse loginUser(String email, String password);
 
+    String signupUser(String userId, String userName, String email, String paasword);
+
     String createUser(String userId, String userName, String password, String email);
 
     List<User> getAllUsers();
