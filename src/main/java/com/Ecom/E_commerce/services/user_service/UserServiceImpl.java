@@ -47,6 +47,24 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public String signupUser(String userId, String userName, String email, String paasword) {
+
+        if(userRepository.findByEmail(email)!= null){
+            throw new ApiRequestException("Email already exists");
+        }
+        User user = User.builder()
+                .userId(userId)
+                .userName(userName)
+                .email(email)
+                .password(paasword)
+                .role("USER")
+                .build();
+        userRepository.save(user);
+
+        return "User signed up successfully";
+    }
+
+    @Override
     public String createUser(String userId, String userName, String password, String email) {
         User user = userMapper.touser(userId,userName,password,email);
         userRepository.save(user);

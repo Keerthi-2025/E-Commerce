@@ -3,6 +3,7 @@ package com.Ecom.E_commerce.controllers;
 
 import com.Ecom.E_commerce.Dto.Request.CreateUserDto;
 import com.Ecom.E_commerce.Dto.Request.LoginDto;
+import com.Ecom.E_commerce.Dto.Request.SignupDto;
 import com.Ecom.E_commerce.Dto.Response.LoginResponse;
 import com.Ecom.E_commerce.models.User;
 import com.Ecom.E_commerce.services.user_service.UserService;
@@ -47,5 +48,11 @@ public class UserController {
         );
 
         return ResponseEntity.ok(response);
+    }
+
+    @PostMapping("/v1/signup")
+    public ResponseEntity<String> signup(@RequestBody SignupDto data){
+        String message = userService.signupUser(data.userId(), data.userName(), data.email(), data.password());
+        return ResponseEntity.status(201).body(message);
     }
 }
