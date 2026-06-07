@@ -84,13 +84,7 @@ const Signup = () => {
                         value={email}
                         onChange={(e)=>setEmail(e.target.value)}/>
 
-                     <PasswordInput
-          value={password}
-          onChange={(e)=>setPassword(e.target.value)}
-          />
-
-
-
+                     <PasswordInput value={password} onChange={(e)=>setPassword(e.target.value)}/>
 
                         <button type="submit" className="btn-primary">Create an Account</button>
 
