@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axiosInstance from "../../utils/axiosInstance";
 
 const Signup = () => {
@@ -54,15 +54,40 @@ const Signup = () => {
     };
 
     return (
-        <div>
-            <div>
-                <div>
-                    <form>
-                        <h1>Signup</h1>
+       
+            <div className="flex items-center justify-center mt-27">
+                <div className=  " w-96 border rounded bg-white  px-7 py-10  ">
+                    <form onSubmit={handleSignup}>
+                        <h1 className="text-2xl mb-7 ">Signup</h1>
+
+                        <input
+                        text="text"
+                        placeholder="Enter the Name"
+                        className="input-box"
+                        value={name}
+                        onChange={(e)=>setName(e.target.value)}/>
+
+                        <input
+                        type="text"
+                        placeholder="Enter the Email"
+                        className="input-box"
+                        value={email}
+                        onChange={(e)=>setEmail(e.target.value)}/>
+
+
+
+
+                        <button type="submit" className="btn-primary">Create an Account</button>
+
+                       {error && <p className="text-red-600">{error}</p>}
+
+                       <p>Already have an Account? {" "}
+                        <Link to="/signup" className="font-medium underline">Signup</Link>
+                       </p>
                     </form>
                 </div>
             </div>
-        </div>
+       
     );
 };
 
