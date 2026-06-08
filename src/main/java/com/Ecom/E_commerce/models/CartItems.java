@@ -2,7 +2,6 @@ package com.Ecom.E_commerce.models;
 
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -22,7 +21,7 @@ public class CartItems {
     private Integer cartItm_id;
 
     @Column(nullable = false)
-    private  String car_qty;
+    private  Integer car_qty;
 
     @ManyToOne
     @JsonBackReference

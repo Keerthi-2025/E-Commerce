@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface CartItemsService {
 
-    String addItemToCart(Integer cartItm_id, String car_qty, Integer cart_id, Integer pro_id);
+    String addItemToCart(Integer cartItm_id, Integer car_qty, Integer cart_id, Integer pro_id);
 
     CartItems getCartItemsById(Integer cartItm_id);
 

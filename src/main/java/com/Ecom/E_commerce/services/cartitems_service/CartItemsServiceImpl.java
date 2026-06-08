@@ -30,7 +30,7 @@ public class CartItemsServiceImpl implements  CartItemsService {
     @Override
     public String addItemToCart(
             Integer cartItm_id,
-            String car_qty,
+            Integer car_qty,
             Integer cart_id,
             Integer pro_id
     ) {

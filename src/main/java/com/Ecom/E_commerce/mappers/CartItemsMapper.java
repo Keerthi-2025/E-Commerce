@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 @Component
 
 public class CartItemsMapper {
-    public CartItems tocartitems(Integer cartItm_id, String car_qty, Cart cart, Product product)
+    public CartItems tocartitems(Integer cartItm_id, Integer car_qty, Cart cart, Product product)
     {
         return  CartItems.builder()
                 .cartItm_id(cartItm_id)
