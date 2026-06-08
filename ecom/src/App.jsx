@@ -3,7 +3,7 @@ import Login from './pages/Auth/Login.jsx';
 import Signup from './pages/Auth/Signup.jsx';
 
 import { Routes, Route} from 'react-router-dom';
-import LandingPage from './pages/LandingPage.jsx';
+import LandingPage from './components/Landing/LandingPage.jsx';
 
 function App  () {
   return (

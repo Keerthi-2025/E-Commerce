@@ -36,12 +36,12 @@ const Signup = () => {
         setError("");
 
         try {
-            const response = await axiosInstance.post("/User/v1/signup", {
-                userId: Date.now().toString(),
-                userName: name,
-                email: email,
-                password: password,
-            });
+           const response = await axiosInstance.post("/User/v1/signup", {
+    userId: Date.now().toString(),
+    userName: name,
+    email: email,
+    password: password,
+});
 
             alert(response.data);
 
@@ -50,7 +50,7 @@ const Signup = () => {
 
         } catch (error) {
             if (error.response && error.response.data) {
-                setError(error.response.data);
+                setError(error.response?.data?.message || "Something went wrong");
             } else {
                 setError("An error occurred. Please try again later");
             }
@@ -71,7 +71,7 @@ const Signup = () => {
                         <h1 className="text-2xl mb-7 ">Signup</h1>
 
                         <input
-                        text="text"
+                        type="text"
                         placeholder="Enter the Name"
                         className="input-box"
                         value={name}
