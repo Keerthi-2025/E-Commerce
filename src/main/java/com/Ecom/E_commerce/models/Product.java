@@ -1,5 +1,6 @@
 package com.Ecom.E_commerce.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -38,6 +39,7 @@ public class Product {
     @JsonManagedReference("product-items")
     private List<CartItems> cartItems;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "product")
     private  List<OrderItems> orderItems;
 
