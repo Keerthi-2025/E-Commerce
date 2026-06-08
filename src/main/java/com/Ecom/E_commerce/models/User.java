@@ -1,6 +1,7 @@
 package com.Ecom.E_commerce.models;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -37,6 +38,7 @@ public class User {
     @JsonBackReference("user-cart")
     private Cart cart;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "user")
     private List<Orders> order;
 
