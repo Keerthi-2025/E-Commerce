@@ -6,6 +6,8 @@ import Cart from './pages/Cart.jsx';
 
 import { Routes, Route} from 'react-router-dom';
 import LandingPage from './components/Landing/LandingPage.jsx';
+import Orders from './pages/Orders.jsx';
+import OrderDetails from './pages/OrderDetails.jsx';
 
 function App  () {
   return (
@@ -17,6 +19,11 @@ function App  () {
 
       <Route path='/products' element={<Products/>}/>
       <Route path='/cart' element={<Cart/>}/>
+      <Route path='/orders' element={<Orders/>}/>
+
+      <Route path="/orders/:orderId" element={<OrderDetails />} />
+
+      <Route path='/OrderDetails' element={<OrderDetails/>}/>
     </Routes>
   )
 }

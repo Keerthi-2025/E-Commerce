@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react";
 import axiosInstance from "../utils/axiosInstance";
+import { useNavigate } from "react-router-dom";
 
 const Products = () => {
   const [products, setProducts] = useState([]);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetchProducts();
@@ -43,6 +46,8 @@ const Products = () => {
 
       alert("Added to cart ✅");
       console.log(res.data);
+
+       navigate("/cart");
 
     } catch (error) {
       console.log(error);
