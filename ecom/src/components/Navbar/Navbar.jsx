@@ -3,8 +3,12 @@ import { useNavigate } from "react-router-dom";
 
 export default function Navbar({ isLoggedIn = false }) {
   const [menuOpen, setMenuOpen] = useState(false);
-
   const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.removeItem("user"); // if you store login
+    navigate("/login");
+  };
 
   return (
     <nav
@@ -16,14 +20,15 @@ export default function Navbar({ isLoggedIn = false }) {
         padding: "0 20px",
         backgroundColor: "#111",
         color: "white",
-        
         position: "sticky",
         top: 0,
         zIndex: 1000,
       }}
     >
       {/* Logo */}
-      <h2 style={{ cursor: "pointer" }}>EasyShop 🛒</h2>
+      <h2 style={{ cursor: "pointer" }} onClick={() => navigate("/")}>
+        EasyShop 🛒
+      </h2>
 
       {/* Search Bar */}
       <input
@@ -39,21 +44,25 @@ export default function Navbar({ isLoggedIn = false }) {
       />
 
       {/* Desktop Menu */}
-      <div
-        className="desktop-menu"
-        style={{ display: "flex", gap: "15px", alignItems: "center" }}
-      >
+      <div style={{ display: "flex", gap: "15px", alignItems: "center" }}>
         {!isLoggedIn ? (
           <>
-            <button onClick={()=> navigate("/login")}>Login</button>
-            <button onClick={()=> navigate("/signup")}>Signup</button>
+            <button onClick={() => navigate("/login")}>Login</button>
+            <button onClick={() => navigate("/signup")}>Signup</button>
           </>
         ) : (
           <>
-            <button>Cart 🛒</button>
-            <button>Orders</button>
-            <button>Profile 👤</button>
-            <button>Logout</button>
+            <button onClick={() => navigate("/cart")}>Cart 🛒</button>
+
+            <button onClick={() => navigate("/orders")}>
+              Orders
+            </button>
+
+            <button onClick={() => navigate("/profile")}>
+              Profile 👤
+            </button>
+
+            <button onClick={handleLogout}>Logout</button>
           </>
         )}
       </div>
@@ -62,7 +71,6 @@ export default function Navbar({ isLoggedIn = false }) {
       <button
         onClick={() => setMenuOpen(!menuOpen)}
         style={{
-          display: "none",
           background: "transparent",
           color: "white",
           fontSize: "20px",
@@ -88,15 +96,17 @@ export default function Navbar({ isLoggedIn = false }) {
         >
           {!isLoggedIn ? (
             <>
-              <button>Login</button>
-              <button>Signup</button>
+              <button onClick={() => navigate("/login")}>Login</button>
+              <button onClick={() => navigate("/signup")}>Signup</button>
             </>
           ) : (
             <>
-              <button>Cart 🛒</button>
-              <button>Orders</button>
-              <button>Profile 👤</button>
-              <button>Logout</button>
+              <button onClick={() => navigate("/cart")}>Cart 🛒</button>
+              <button onClick={() => navigate("/orders")}>Orders</button>
+              <button onClick={() => navigate("/profile")}>
+                Profile 👤
+              </button>
+              <button onClick={handleLogout}>Logout</button>
             </>
           )}
         </div>

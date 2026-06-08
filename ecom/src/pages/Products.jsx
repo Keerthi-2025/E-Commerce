@@ -8,54 +8,55 @@ const Products = () => {
     fetchProducts();
   }, []);
 
- const fetchProducts = async () => {
-  try {
-    const res = await axiosInstance.get("/Product/v1/getAllProducts");
+  // ✅ FETCH PRODUCTS
+  const fetchProducts = async () => {
+    try {
+      const res = await axiosInstance.get(
+        "/Product/v1/getAllProducts"
+      );
 
-console.log("API:", res.data);
+      console.log("API:", res.data);
 
-// FORCE SAFE ARRAY
-const data = Array.isArray(res.data) ? res.data : [];
+      const data = Array.isArray(res.data) ? res.data : [];
+      setProducts(data);
 
-setProducts(data);
+    } catch (err) {
+      console.log(err);
+      setProducts([]);
+    }
+  };
 
-  } catch (err) {
-    console.log(err);
-    setProducts([]);
-  }
-
+  // ✅ ADD TO CART (MUST BE HERE)
   const addToCart = async (productId) => {
-  try {
-    const payload = {
-      cartItm_id: Date.now(),   // temporary id (backend can ignore later)
-      car_qty: 1,
-      cart_id: 1,               // for now static cart (we improve later)
-      pro_id: productId
-    };
+    try {
+      const payload = {
+        cartItm_id: Date.now(),
+        car_qty: 1,
+        cart_id: 1,
+        pro_id: productId,
+      };
 
-    const res = await axiosInstance.post(
-      "/CartItems/add",
-      payload
-    );
+      const res = await axiosInstance.post(
+        "/CartItems/add",
+        payload
+      );
 
-    alert("Added to cart ✅");
-    console.log(res.data);
+      alert("Added to cart ✅");
+      console.log(res.data);
 
-  } catch (err) {
-    console.log(err);
-    alert("Failed to add to cart ❌");
-  }
-};
-};
+    } catch (error) {
+      console.log(error);
+      alert("Failed to add to cart ❌");
+    }
+  };
 
   return (
     <div className="p-6">
-      
+
       <h1 className="text-2xl font-bold mb-6">
         🛍️ Products
       </h1>
 
-      {/* GRID */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
 
         {products.map((p) => (
@@ -80,11 +81,12 @@ setProducts(data);
             </p>
 
             <button
-  onClick={() => addToCart(p.pro_id)}
-  className="mt-3 bg-blue-500 text-white px-3 py-1 rounded"
->
-  Add to Cart
-</button>
+              onClick={() => addToCart(p.pro_id)}
+              className="mt-3 bg-blue-500 text-white px-3 py-1 rounded"
+            >
+              Add to Cart
+            </button>
+
           </div>
         ))}
 
