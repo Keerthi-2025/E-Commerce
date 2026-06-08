@@ -151,4 +151,9 @@ public class OrderItemsServiceImpl implements OrderItemsService {
 
         return String.valueOf(total);
     }
+
+    @Override
+    public List<OrderItems> getByOrderId(Integer orderId) {
+        return orderItemsRepository.findByOrders_OrderId(orderId);
+    }
 }

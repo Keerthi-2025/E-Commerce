@@ -10,4 +10,6 @@ public interface OrderItemsRepository extends  JpaRepository<OrderItems, Integer
 
 
     List<OrderItems> findByOrders(Orders orders);
+
+    List<OrderItems> findByOrders_OrderId(Integer orderId);
 }
