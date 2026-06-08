@@ -3,8 +3,6 @@ package com.Ecom.E_commerce.models;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.List;
-
 @Data
 @Entity
 @Table(name = "orders")
@@ -14,10 +12,9 @@ import java.util.List;
 public class Orders {
 
     @Id
-    private Integer order_id;
+    private Integer orderId;
 
-    @Column
-    private double total_amt;
+    private String totalAmt;
 
     @ManyToOne
     @JoinColumn(name = "user_id")

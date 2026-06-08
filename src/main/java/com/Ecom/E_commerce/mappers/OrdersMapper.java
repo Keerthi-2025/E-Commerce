@@ -29,20 +29,18 @@ import com.Ecom.E_commerce.models.Orders;
 import com.Ecom.E_commerce.models.User;
 import org.springframework.stereotype.Component;
 
-import java.util.List;
-
 @Component
 public class OrdersMapper {
 
     public Orders toorders(
-            Integer order_id,
-            double total_amt,
+            Integer orderId,
+            Double totalAmt,
             User user
     ) {
 
         return Orders.builder()
-                .order_id(order_id)
-                .total_amt(total_amt)
+                .orderId(orderId)
+                .totalAmt(String.valueOf(totalAmt))
                 .user(user)
                 .build();
     }

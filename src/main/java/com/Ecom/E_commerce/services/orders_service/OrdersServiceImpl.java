@@ -147,7 +147,7 @@ public class OrdersServiceImpl implements OrdersService {
         // 4. Create order
         Orders order = new Orders();
         order.setUser(user);
-        order.setTotal_amt(total);
+        order.setTotalAmt(String.valueOf(total));
 
         ordersRepository.save(order);
 

@@ -47,18 +47,18 @@ public class OrderItemsServiceImpl implements OrderItemsService {
                                Integer order_id,
                                Integer pro_id) {
 
-        System.out.println("order_id = " + order_id);
-        System.out.println("pro_id = " + pro_id);
-
         Orders orders = ordersRepository.findById(order_id)
                 .orElseThrow(() -> new RuntimeException("Order not found"));
-
-        System.out.println("Order Found");
 
         Product product = productRepository.findById(pro_id)
                 .orElseThrow(() -> new RuntimeException("Product not found"));
 
-        System.out.println("Product Found");
+        if (product.getStock() < ord_qty) {
+            return "Insufficient stock";
+        }
+
+        product.setStock(product.getStock() - ord_qty);
+        productRepository.save(product);
 
         OrderItems orderItems = orderItemsMapper.tooorderitems(
                 orderItms_Id,
@@ -67,15 +67,10 @@ public class OrderItemsServiceImpl implements OrderItemsService {
                 product
         );
 
-//        System.out.println("Before Save");
-
         orderItemsRepository.save(orderItems);
-
-//        System.out.println("After Save");
 
         return "Order Item Added Successfully";
     }
-
 
     @Override
     public OrderItems getOrderItemsById(Integer orderItms_Id) {
