@@ -29,7 +29,6 @@ public class CartItemsServiceImpl implements  CartItemsService {
 
     @Override
     public String addItemToCart(
-            Integer cartItm_id,
             Integer car_qty,
             Integer cart_id,
             Integer pro_id
@@ -42,15 +41,14 @@ public class CartItemsServiceImpl implements  CartItemsService {
                 .orElseThrow(() -> new RuntimeException("Product not found"));
 
         CartItems cartItems = cartItemsMapper.tocartitems(
-                cartItm_id,
                 car_qty,
                 cart,
                 product
         );
 
-       cartItemsRepository.save(cartItems);
+        cartItemsRepository.save(cartItems);
 
-        return "Items are added to cart successfully";
+        return "Items added to cart successfully";
     }
     @Override
     public CartItems getCartItemsById(Integer cartItm_id) {

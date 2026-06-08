@@ -21,8 +21,10 @@ public class CartItemsController {
     }
 
     @PostMapping("/add")
-    public ResponseEntity<String>createcart(@RequestBody CreateCartItemsDto data){
-        String message = cartItemsService.addItemToCart(data.cartItm_id(), data.car_qty(), data.cart_id(),data.pro_id());
+    public ResponseEntity<String> createcart(@RequestBody CreateCartItemsDto data){
+
+        String message = cartItemsService.addItemToCart(data.car_qty(), data.cart_id(), data.pro_id());
+
         return ResponseEntity.status(201).body(message);
     }
 
