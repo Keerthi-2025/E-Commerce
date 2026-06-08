@@ -17,7 +17,7 @@ public class Orders {
     private Integer order_id;
 
     @Column
-    private String total_amt;
+    private double total_amt;
 
     @ManyToOne
     @JoinColumn(name = "user_id")

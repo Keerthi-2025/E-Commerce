@@ -104,4 +104,9 @@ public class OrdersController {
                 ordersService.getAllOrders()
         );
     }
+
+    @PostMapping("/v1/checkout")
+    public ResponseEntity<String> checkout(@RequestParam Integer userId) {
+        return ResponseEntity.ok(ordersService.checkout(userId));
+    }
 }

@@ -38,4 +38,7 @@ public interface OrdersService {
     List<Orders> getAllOrders();
 
     List<Orders> findByUser(User user);
+
+    String checkout(Integer userId);
+
 }

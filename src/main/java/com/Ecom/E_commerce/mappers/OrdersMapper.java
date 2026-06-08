@@ -36,7 +36,7 @@ public class OrdersMapper {
 
     public Orders toorders(
             Integer order_id,
-            String total_amt,
+            double total_amt,
             User user
     ) {
 

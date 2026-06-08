@@ -7,6 +7,8 @@ import com.Ecom.E_commerce.services.orderitems_service.OrderItemsService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/OrderItems")
 
@@ -70,6 +72,11 @@ public class OrderItemsController {
 
         return ResponseEntity.status(200).body(orderItemsService.getTotalItemsInOrder(order_id));
     }
+    @GetMapping("/v1/getByOrderId")
+    public ResponseEntity<List<OrderItems>> getByOrderId(@RequestParam Integer orderId) {
+        return ResponseEntity.ok(orderItemsService.getByOrderId(orderId));
+    }
+
 
 
 

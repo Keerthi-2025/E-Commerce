@@ -22,5 +22,5 @@ public interface OrderItemsService {
 
     String getTotalItemsInOrder(Integer order_id);
 
-
+    List<OrderItems> getByOrderId(Integer orderId);
 }
