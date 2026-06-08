@@ -48,7 +48,7 @@ export const Login = () => {
 
       localStorage.setItem("user", JSON.stringify(response.data))
 
-      navigate("/dashboard")
+      navigate("/products")
 
     } catch (error) {
       console.log(error)
